@@ -1,0 +1,97 @@
+\usetikzlibrary{arrows.meta}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30,align=center]
+
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=blue!30,align=center]
+
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30,align=center]
+
+
+\tikzstyle{decision} = [draw, diamond,aspect=2, text centered, draw=black, fill=green!30,inner sep=0pt,align=center]
+
+\tikzstyle{fixedD}=[draw,rectangle split, rectangle split horizontal,align=center,rectangle split parts=3,minimum height=1cm,fill={rgb:red,50;green,200;blue,216}]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\newpage
+\begin{center}
+\begin{tikzpicture}[node distance=1.6cm]
+
+%---------Declaracion de nodos de acción
+\node (roslaunch)           [startstop                                                   ] {Inicio Proceso};
+\node (espera)              [process , below of=roslaunch                                ] {Estado de espera};
+\node (grabar)              [process , below of=espera                                   ] {Grabar audio\\ de instrucción};
+\node (traducir)            [process , below of=grabar                                   ] {Traducir audio\\ a texto};
+\node (instruccionvalida)   [decision, below of=traducir,node distance=2.3cm             ] {¿Instrucción\\ Valida?};
+\node (tomaimagenrgb)       [process , below of=instruccionvalida,node distance=2.3cm    ] {Tomar imagen 2D\\ del entorno};
+\node (reconocerobjeto)     [decision, below of=tomaimagenrgb,node distance=2.3cm        ] {¿Objeto\\ Reconocido?};
+\node (localizarobjeto)     [process , below of=reconocerobjeto, node distance=2.3cm     ] {Localizar objeto\\ en el entorno};
+\node (desplazamiento)      [process , below of=localizarobjeto                          ] {Desplazar el robot hasta el objeto};
+\node (tomarobjeto)         [fixedD  , below of=desplazamiento                           ] {\nodepart{two}\shortstack{Tomar objeto\\ con movimientos\\ pregrabados}};
+\node (desp_a_paciente)     [process , below of=tomarobjeto                              ] {Desplazar el robot\\ cerca del paciente};
+\node (entregarobjeto)      [process , below of=desp_a_paciente                          ] {Entregar el objeto\\ cerca del paciente};
+\node (finalizaproceso)     [process , below of=entregarobjeto                           ] {Fin de tarea};
+
+
+%--------Declaracion de nodos input output
+\node (audio)               [io, left of=grabar, xshift=-3cm                             ] {Audio: Mensaje\\ de persona};
+\node (imagen2D)            [io, left of=tomaimagenrgb, xshift=-3cm                      ] {Imagen 2D\\ RGB del kinect        };
+\node (imagenProfundidad)   [io, left of=localizarobjeto, xshift=-3cm                    ] {Imagen de\\ profundidad\\ del kinect};
+\node (inst_no_valida)      [io, right of=instruccionvalida,xshift=4cm                   ] {Respuesta del robot:\\ `Instrucción no valida`};
+\node (objeto_no_reconocido)[io, right of=reconocerobjeto,xshift=4cm                     ] {Respuesta del robot:\\ `No se reconoció\\ el objeto`};
+
+
+\draw [arrow] (roslaunch) -- (espera);
+\draw [arrow] (espera)    -- (grabar);
+\draw [arrow] (grabar)    -- (traducir);
+\draw [arrow] (traducir) -- (instruccionvalida);
+
+
+\draw [arrow] (instruccionvalida) --node[anchor=east] {Si}  (tomaimagenrgb);
+\draw [arrow] (instruccionvalida) --node[anchor=south] {No}  (inst_no_valida);
+
+
+
+\draw [arrow] (tomaimagenrgb) -- (reconocerobjeto);
+\draw [arrow] (reconocerobjeto) --node[anchor=east] {Si} (localizarobjeto);
+\draw [arrow] (reconocerobjeto) --node[anchor=south] {No} (objeto_no_reconocido);
+
+
+
+
+\draw [arrow] (localizarobjeto) -- (desplazamiento);
+
+
+\draw [arrow] (desplazamiento) -- (tomarobjeto);
+\draw [arrow] (tomarobjeto) -- (desp_a_paciente);
+\draw [arrow] (desp_a_paciente) -- (entregarobjeto);
+\draw [arrow] (entregarobjeto) -- (finalizaproceso);
+\draw [arrow] (imagen2D) -- (tomaimagenrgb);
+\draw [arrow] (imagenProfundidad) -- (localizarobjeto);
+\draw [arrow] (audio) -- (grabar);
+
+\draw [arrow] (inst_no_valida) |- (espera);
+\draw [arrow] (objeto_no_reconocido.east)  -- + (2,0) |-  (espera);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+
+\end{center}
+
+
+\newpage

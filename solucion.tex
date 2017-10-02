@@ -1,0 +1,76 @@
+\chapter{Integracion de tareas }
+\label{ch:solucion}
+
+
+
+
+\section*{Procedimiento para la ejecución del proyecto}
+
+Este proyecto reúne distintas disciplinas como visión artificial (computer vision), aprendizaje profundo 
+(deep learning), integración de tareas mediante software tipo middleware (lógica de intercambio de información
+entre aplicaciones), nubes de puntos, entre otros. A continuación se explica las actividades que se pretenden 
+aplicar para lograr cada etapa planteada en los objetivos específicos.
+
+
+\section{Reconocer los objetos especificados en el entorno que rodea al robot:}
+Se deben hacer diferentes pruebas
+para definir los parámetros y condiciones óptimas para realizar la captura de las imágenes. Después se utilizará
+Caffe (framework) el cual soporta muchos tipos diferentes de arquitecturas de aprendizaje profundo, en este caso
+se utilizará el proyecto \textit{Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks}
+\cite{renNIPS15fasterrcnn}, orientada a la clasificación de objetos en imágenes y la ubicación de la región donde
+se encuentre. Se utilizarán modelos de redes neuronales convolucionales pre-entrenados que se fundamenten en la
+base de datos ImageNet la cual está organizada de acuerdo a la jerarquía de sustantivos de WordNet en el que cada
+nodo de la jerarquía está representado por cientos y miles de imágenes, aunque también en caso de ser necesario 
+se entrenará una red neuronal con un \textit{dataset} enfocado en reconocer específicamente los objetos previamente 
+detallados para obtener un modelo que presente mayores beneficios en comparación a los ya existentes. Los objetos 
+específicos que debe reconocer el robot aún están por definir porque la mano en el brazo del robot no es muy grande
+y se deben hacer pruebas con objetos pequeños para definirlos. En pocas palabras, Caffe se encarga de recibir como
+\textbf{entrada} una imagen tomada por el robot y su \textbf{salida} es o son los sustantivos u objetos que más 
+probabilidad tienen de coincidir con la realidad junto con la ubicación de la región donde reconoció el objeto. 
+ 
+\section{Reconocer la voz del paciente y traducirlo como una instrucción:}
+El reconocimiento de voz se llevará a cabo
+mediante bibliotecas que se importan en Python para cumplir este objetivo. Por ejemplo, el primer candidato para 
+esta tarea es SpeechRecognition la cual es una biblioteca para Python soportado por la API Google Speech Recognition.
+Este tiene la función de convertir el mensaje del paciente a texto, y posteriormente el robot deberá interpretarlo
+como una instrucción. Se debe aclarar que después de la conversión de audio a texto, el algoritmo atenderá a
+instrucciones y objetos limitados, con el objetivo de simplificar el proyecto debido al corto periodo para 
+desarrollarlo. Las palabras que debe reconocer según las métricas definidas son: 
+    \begin{itemize}
+        \item Verbos: Traer, alcanzar.
+        \item Sustantivos: Los tres nombres de los objetos que se deben localizar
+    \end{itemize}
+    
+    
+\section{ Integrar las tareas de desplazamiento y el movimiento de objetos por parte del robot junto con 
+    el reconocimiento de objetos y de voz: }
+Para lograr la localización en el espacio del robot y el objeto 
+deseado se hará uso del dispositivo tipo Kinect o sensor 3D para obtener información del entorno que rodea
+al robot y luego procesarla con PCL (Point Cloud Library) la cual incorpora utilidades para trabajar con
+nubes de puntos y procesamiento de imágenes 3D, esto tiene como finalidad de que el robot se ubique en el 
+espacio que lo rodea pero también sirve para identificar dónde se encuentra el objeto deseado. Luego que se 
+ha localizado el objeto, el robot debe desplazarse hasta las cercanías de este, tomar el objeto mediante un 
+movimiento pregrabado (con el fin de evitar la ardua tarea de \textit{Grasping} en robótica), regresar hasta 
+donde se encuentra el paciente y colocarlo cerca según las especificaciones previamente definidas.
+    
+Para obtener toda esta información de los sensores del robot y también para accionar sus motores que permiten
+desplazarlo entre distintos puntos y mover sus extremidades se utilizará el sistema operativo para robots que
+se caracteriza por ser un software de tipo middleware (ROS: Robot Operating System), el cual opera de la 
+siguiente manera: el núcleo donde se realiza todo el procesamiento de la información es el ordenador, el 
+cual se conecta al robot que en este caso es una ramificación del núcleo mediante su IP dentro de una red,
+de esta manera el núcleo puede acceder a todos los dispositivos del robot como cámara, sensores, kinect,
+micrófonos y también puede accionar los mecanismos para mover al robot y sus extremidades.
+    
+Algunos puntos a considerar:
+    \begin{itemize}
+        \item Delimitar la altura en la que se encuentra el objeto, la cual ronda un rango entre 70 cm a 100 cm
+        \item La mano del robot o pinza se abrirá y cerrará en dirección paralela al suelo.
+        \item El proyecto no tiene como requisito contemplar obstáculos.
+        \item Este proyecto no tiene como requisito que su evaluación sea en un entorno real como un cuarto 
+        de habitación, un cuarto de hospital, entre otros; esto por el corto periodo para desarrollar el proyecto. 
+    \end{itemize}
+ 
+Por último se debe lograr enlazar cada tarea individual y crear un sistema funcional, en esta etapa 
+es posible que se deban hacer modificaciones a las tareas individuales para mejorar los resultados del proyecto.  
+    
+

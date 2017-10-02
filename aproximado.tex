@@ -1,0 +1,41 @@
+\chapter{Casos de estudio bajo funcionamiento aproximado}
+\label{ch:aproximado}
+
+\section{Descripción del capítulo}
+
+Este segundo caso de estudio comprende en observar el funcionamiento aproximado de aplicaciones ADAS. Se procede realizar modificaciones a las 3 aplicaciones seleccionadas (TSR, LDW y PCW), para luego probarlas en un sistema de control y obtener data que comparar contra lo que se va a obtuvo en el caso de estudio que se presentó en el capítulo 3. Se introducen entonces, los conceptos necesarios para el adecuado entendimiento de lo que este capitulo consiste. 
+
+\subsection*{Paradigmas de diseño en computación}
+
+A pesar de los avances en tecnologías de semiconductor y desarrollo de técnicas del diseño eficientes por la energía, el consumo de energía total de sistemas de ordenadores todavía crece rápidamente en un ritmo alarmante a fin de tratar una cantidad creciente de la información. En particular, ya que los sistemas de ordenadores se hacen penetrantes, cada vez más son usados para relacionarse con el mundo físico y tratar una cantidad grande de datos de varias fuentes. Además, esperamos que ellos sean el contexto consciente y presenten interfaces de usuario naturales. Por consiguiente, un gran número de aplicaciones, comúnmente referidas como el reconocimiento, minería, y síntesis (Recognition, Mining, and Synthesis, RMS) aplicaciones, ha surgido y explican una parte significativa de recursos computacionales a través del espectro de calcular, desde móvil y dispositivos de Internet of Things (IoT) a centros de datos a gran escala.
+Es esencial mejorar dramáticamente la eficiencia energética de estas cargas de trabajo emergentes a fin de mantener el ritmo del crecimiento de la información que necesita ser procesada. Afortunadamente, estas aplicaciones suelen presentar una propiedad intrínseca de la resiliencia de errores [2]. Procesan datos ruidosos y redundantes de fuentes de entrada no tradicionales como varios tipos de sensores (entradas inexactas) y los algoritmos asociados son a menudo estocásticos en la naturaleza (por ejemplo, algoritmos iterativos)\cite{Xu2016}.
+
+
+
+\subsection*{Computación Aproximada}
+
+La computación aproximada, ha atraído la tracción significativa tanto de academia como de industria. Relajando la equivalencia numérica entre la especificación y la realización de aplicaciones tolerantes del error, la informática aproximada deliberadamente introduce errores aceptables [en el proceso de calcular y promete ganancias de eficiencia energética significativas. La consideración del hecho que el escalamiento de Dennard tradicional provee rendimientos decrecientes del progreso de la tecnología, reforzando la nueva fuente de eficiencia energética proporcionada por la informática aproximada es cada vez más importante\cite{Xu2016}.
+
+\subsubsection*{Software Aproximado}
+
+Un buen lenguaje de programación debería permitir a los programadores para ser productivos. Se debe permitir a los programadores rápidamente expresar sus ideas como programas y al mismo tiempo permitir un compilador o un sistema de ejecución para optimizar sus programas de ejecución. En muchos sentidos, un lenguaje de programación y su aplicación equilibrar la productividad de los programadores con un sistema s eficiencia. El mecanismo por el cual los lenguajes de programación proporcionan este equilibrio es la abstracción. Una abstracción permite al programador a decir qué hacer con el fin de realizar una tarea, no cómo hacerlo. La forma de hacerlo o la aplicación de la abstracción es la izquierda para el compilador o el sistema de ejecución. Construcción de aplicaciones sofisticadas, es difícil y requiere experiencia en toda la pila del sistema, y en esta época de aproximación, que experiencia incluye estadísticas (o alguna otra aproximación consciente razonamiento) además de aplicación el conocimiento de dominios específicos. No es de extrañar, entonces, que muchos investigadores hayan propuesto abstracciones para ayudar a los programadores con esta tarea desalentadora. Estas abstracciones ayudan a los programadores a expresar sus ideas en código (es decir, lenguajes de programación con conciencia aproximada), permita que los motores de análisis razonen sobre la corrección de tales programas (es decir, análisis aproximados), y permita que los compiladores generen código de máquina (es decir, compiladores con conciencia aproximada). Esta sección revisa el trabajo académico e industrial reciente de estas áreas de lenguajes de programación orientados al aproximado, análisis aproximados y compiladores con conciencia aproximada\cite{Xu2016}.
+
+
+%------Aproximate Computing:A survey----survey.pdf---------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{comment}
+Primero que todo, jamás utilice el título indicado arriba, sino algo
+relacionado con su solución: ``Sistema de corrección de distorsión'' o lo que
+competa a su tesis en particular.
+
+Este capítulo puede separarse en varias secciones, dependiendo del problema
+concreto. Aquí los algoritmos o el diseño del sistema deben quedar lo
+suficientemente claros para que otra persona pueda re-implementar al sistema
+propuesto. Sin embargo, el enfoque no debe nunca concentrarse en los detalles
+de la implementación particular realizada, sino del diseño conceptual como tal.
+
+Recuerdese que toda figura y tabla deben estar referenciadas en el texto.
+\end{comment}
