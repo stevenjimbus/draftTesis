@@ -41,31 +41,26 @@
 \node (inst_no_valida)      [io, right of=instruccionvalida,xshift=4cm                   ] {Respuesta del robot:\\ `Instrucción no valida`};
 \node (objeto_no_reconocido)[io, right of=reconocerobjeto,xshift=4cm                     ] {Respuesta del robot:\\ `No se reconoció\\ el objeto`};
 
-
-\draw [arrow] (roslaunch) -- (espera);
-\draw [arrow] (espera)    -- (grabar);
-\draw [arrow] (grabar)    -- (traducir);
-\draw [arrow] (traducir) -- (instruccionvalida);
-\draw [arrow] (instruccionvalida) --node[anchor=east] {Si}  (tomaimagenrgb);
-\draw [arrow] (instruccionvalida) --node[anchor=south] {No}  (inst_no_valida);
-\draw [arrow] (tomaimagenrgb) -- (reconocerobjeto);
-\draw [arrow] (reconocerobjeto) --node[anchor=east] {Si} (localizarobjeto);
-\draw [arrow] (reconocerobjeto) --node[anchor=south] {No} (objeto_no_reconocido);
-\draw [arrow] (localizarobjeto) -- (desplazamiento);
-
-
-\draw [arrow] (desplazamiento) -- (tomarobjeto);
-\draw [arrow] (tomarobjeto) -- (desp_a_paciente);
-\draw [arrow] (desp_a_paciente) -- (entregarobjeto);
-\draw [arrow] (entregarobjeto) -- (finalizaproceso);
-\draw [arrow] (finalizaproceso.west)-- + (-6,0) |- (espera);
-
-
-
-\draw [arrow] (imagen2D) -- (tomaimagenrgb);
-\draw [arrow] (imagenProfundidad) -- (localizarobjeto);
-\draw [arrow] (audio) -- (grabar);
-\draw [arrow] (inst_no_valida) |- (espera);
+%Dibujar flechas de conexion
+\draw [arrow] (roslaunch)                  -- (espera);
+\draw [arrow] (espera)                     -- (grabar);
+\draw [arrow] (grabar)                     -- (traducir);
+\draw [arrow] (traducir)                   -- (instruccionvalida);
+\draw [arrow] (instruccionvalida)          -- node[anchor=east] {Si}  (tomaimagenrgb);
+\draw [arrow] (instruccionvalida)          -- node[anchor=south] {No}  (inst_no_valida);
+\draw [arrow] (tomaimagenrgb)              -- (reconocerobjeto);
+\draw [arrow] (reconocerobjeto)            -- node[anchor=east] {Si} (localizarobjeto);
+\draw [arrow] (reconocerobjeto)            -- node[anchor=south] {No} (objeto_no_reconocido);
+\draw [arrow] (localizarobjeto)            -- (desplazamiento); 
+\draw [arrow] (desplazamiento)             -- (tomarobjeto);
+\draw [arrow] (tomarobjeto)                -- (desp_a_paciente);
+\draw [arrow] (desp_a_paciente)            -- (entregarobjeto);
+\draw [arrow] (entregarobjeto)             -- (finalizaproceso);
+\draw [arrow] (finalizaproceso.west)       -- + (-6,0) |- (espera);
+\draw [arrow] (imagen2D)                   -- (tomaimagenrgb);
+\draw [arrow] (imagenProfundidad)          -- (localizarobjeto);
+\draw [arrow] (audio)                      -- (grabar);
+\draw [arrow] (inst_no_valida)             |- (espera);
 \draw [arrow] (objeto_no_reconocido.east)  -- + (2,0) |-  (espera);
 
 

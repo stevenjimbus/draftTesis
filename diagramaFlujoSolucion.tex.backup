@@ -46,20 +46,11 @@
 \draw [arrow] (espera)    -- (grabar);
 \draw [arrow] (grabar)    -- (traducir);
 \draw [arrow] (traducir) -- (instruccionvalida);
-
-
 \draw [arrow] (instruccionvalida) --node[anchor=east] {Si}  (tomaimagenrgb);
 \draw [arrow] (instruccionvalida) --node[anchor=south] {No}  (inst_no_valida);
-
-
-
 \draw [arrow] (tomaimagenrgb) -- (reconocerobjeto);
 \draw [arrow] (reconocerobjeto) --node[anchor=east] {Si} (localizarobjeto);
 \draw [arrow] (reconocerobjeto) --node[anchor=south] {No} (objeto_no_reconocido);
-
-
-
-
 \draw [arrow] (localizarobjeto) -- (desplazamiento);
 
 
@@ -67,10 +58,13 @@
 \draw [arrow] (tomarobjeto) -- (desp_a_paciente);
 \draw [arrow] (desp_a_paciente) -- (entregarobjeto);
 \draw [arrow] (entregarobjeto) -- (finalizaproceso);
+\draw [arrow] (finalizaproceso.west)-- + (-6,0) |- (espera);
+
+
+
 \draw [arrow] (imagen2D) -- (tomaimagenrgb);
 \draw [arrow] (imagenProfundidad) -- (localizarobjeto);
 \draw [arrow] (audio) -- (grabar);
-
 \draw [arrow] (inst_no_valida) |- (espera);
 \draw [arrow] (objeto_no_reconocido.east)  -- + (2,0) |-  (espera);
 
