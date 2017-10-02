@@ -3,15 +3,15 @@
 \BOOKMARK [0][-]{chapter*.5}{\315ndice de tablas}{}% 3
 \BOOKMARK [0][-]{chapter.1}{1 Introducci\363n}{}% 4
 \BOOKMARK [1][-]{section.1.1}{1.1 Contexto: Situaci\363n actual en Costa Rica}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.2}{1.2 Deep Learning}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.3}{1.3 Datasets}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.4}{1.4 ROS}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.5}{1.5 Deep Learning Frameworks}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.6}{1.6 Metodolog\355a utilizada en la investigaci\363n}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.7}{1.7 Objetivos de la investigaci\363n}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.8}{1.8 Estructura del documento}{chapter.1}% 12
-\BOOKMARK [0][-]{chapter.2}{2 Marco te\363rico}{}% 13
-\BOOKMARK [1][-]{section.2.1}{2.1 Generalidades}{chapter.2}% 14
+\BOOKMARK [1][-]{section.1.2}{1.2 Metodolog\355a utilizada en la investigaci\363n}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.3}{1.3 Objetivos de la investigaci\363n}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.4}{1.4 Estructura del documento}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{2 Marco te\363rico}{}% 9
+\BOOKMARK [1][-]{section.2.1}{2.1 Generalidades}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{2.2 Deep Learning}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{2.3 Datasets}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{2.4 ROS}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.5}{2.5 Deep Learning Frameworks}{chapter.2}% 14
 \BOOKMARK [0][-]{chapter.3}{3 Integracion de tareas }{}% 15
 \BOOKMARK [1][-]{section.3.1}{3.1 Reconocer los objetos especificados en el entorno que rodea al robot:}{chapter.3}% 16
 \BOOKMARK [1][-]{section.3.2}{3.2 Reconocer la voz del paciente y traducirlo como una instrucci\363n:}{chapter.3}% 17
